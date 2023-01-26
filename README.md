@@ -1,2 +1,2 @@
-# wepin-widget-js-sdk
+# @wepin/widget-sdk
 Wepin Widget Javascript SDK for Web
