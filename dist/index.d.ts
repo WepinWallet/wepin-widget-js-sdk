@@ -1,0 +1,1 @@
+export { Wepin } from '@/wepin';

@@ -1,0 +1,30 @@
+import { Wepin } from '@/wepin';
+import { WepinSDKType } from '@/models/types/wepinSdk';
+export declare abstract class Widget {
+    protected readonly id: string;
+    protected readonly url: string;
+    protected readonly useOverlay: boolean;
+    protected readonly request: WepinSDKType.RequestBody;
+    protected widget?: Window | HTMLIFrameElement | null;
+    protected widgetWebviewEventListener?: (message: MessageEvent) => void;
+    protected closeInterval?: number;
+    private wepin;
+    protected constructor(url: string, useOverlay: boolean, request: WepinSDKType.RequestBody, wepin: Wepin);
+    protected getWepin(): Wepin;
+    protected abstract closeWidget(): void;
+    protected abstract expand(): void;
+    protected abstract shrink(): void;
+    protected setCloseInterval(): void;
+    private clearCloseInterval;
+    protected onResponseEventListener(resolve: (value?: unknown) => void, reject: (reason?: string) => void, response: WepinSDKType.WepinCommand): void;
+    private onRequestEventListener;
+    private getMessageType;
+    protected createWidgetWebviewEventListener(resolve: (value?: unknown) => void, reject: (reason?: string) => void): (message: MessageEvent) => void;
+    private createOnlyResponseEventListener;
+    private removeWidgetWebviewEventListener;
+    focus(): void;
+    abstract get closed(): boolean;
+    close(): void;
+    private closeOverlay;
+    private openOverlay;
+}
