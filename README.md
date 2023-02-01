@@ -17,7 +17,7 @@ import { Wepin } from '@wepin/widget-sdk'
 ```
 or
 ```
-<script src="https://cdn.jsdelivr.net/npm/@wepin/widget-sdk@0.0.2-alpha/sdk/wepin-widget-sdk.js" defer async></script>
+<script src="https://cdn.jsdelivr.net/npm/@wepin/widget-sdk@0.0.2-alpha/dist/wepin-widget-sdk.js" defer async></script>
 ```
 
 ## :fast_forward: Initialize 
