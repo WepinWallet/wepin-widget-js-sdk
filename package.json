@@ -1,13 +1,12 @@
 {
   "name": "@wepin/widget-sdk",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "Wepin Widget Javascript SDK for Web",
   "main": "index.js",
   "author": "IoTrust, Co., Ltd.",
   "homepage": "https://github.com/WepinWallet/wepin-widget-js-sdk/",
   "files": [
-    "dist",
-    "sdk"
+    "dist"
   ],
   "repository": {
     "type": "git",

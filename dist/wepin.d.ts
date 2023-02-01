@@ -4,6 +4,7 @@ import { SetAccountsRequest } from '@/models/types/request/toSdk/SetAccounts';
 import type { TxDataType } from '@/models/types/request/toWidget/SendTransaction';
 import { ReadyToWidgetResponse } from '@/models/types/response/toWidget/ReadyToWidget';
 import type { IAccount, IAttributes, IWepin } from '@wepin/types';
+import { modeByAppKey } from './types/modeByAppKey';
 export declare class Wepin implements IWepin {
     private wepinAppId;
     private wepinAppKey;
@@ -14,8 +15,11 @@ export declare class Wepin implements IWepin {
     private appInfo;
     private accountInfo;
     private floatImage;
+    private _modeByAppKey;
     constructor();
     set setAccountInfo(accounts: SetAccountsRequest);
+    private setModeByAppKey;
+    get modeByAppKey(): modeByAppKey;
     init(appId: string, appKey: string, attributes?: IAttributes): Promise<boolean>;
     get initializedData(): ReadyToWidgetResponse;
     isInitialized(): boolean;

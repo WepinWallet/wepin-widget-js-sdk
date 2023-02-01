@@ -1,10 +1,11 @@
+import { modeByAppKey } from '@/types/modeByAppKey';
 export default class Utils {
     static isMobile(): boolean;
     static isWebview(): boolean;
-    static messages(): {
+    static messages(modeByAppKey: modeByAppKey): {
         hasValidOrigin: (message: MessageEvent) => boolean;
     };
-    static get urls(): {
+    static getUrls(modeByAppKey: modeByAppKey): {
         wepinSdkApi: string;
         wepinWebview: string;
     };
