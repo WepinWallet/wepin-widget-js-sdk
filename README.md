@@ -40,7 +40,6 @@ The `init()` method initializes Wepin SDK. If you don't have appId or appSdkKey,
     - If `type` is omitted, `'hide'` is used
     - `'hide'`: Hide Wepin widget
     - `'show'`: Show Wepin widget after first loading
-    - `'floating'`: Show floating button used to open Wepin widget
   - `defaultLanguage` \<string> *optional*
     - Default language of Wepin widget
     - If `defaultLanguage` is omitted, `'en'` is used
@@ -49,8 +48,6 @@ The `init()` method initializes Wepin SDK. If you don't have appId or appSdkKey,
   - `defaultCurrency` \<string> *optional*
     - Default currency of Wepin widget
     - If `defaultLanguage` is omitted, `'usd'` is used
-    - `'btc'`: Bitcoin
-    - `'eth'`: Ethereum
     - `'usd'`: US Dollar
     - `'krw'`: Korean Won
 #### Return value
@@ -61,7 +58,7 @@ The `init()` method initializes Wepin SDK. If you don't have appId or appSdkKey,
 var appId = 'YOUR_APP_ID'
 var appSdkKey = 'YOUR_APP_SDK_KEY '
 var attributes = {
-	type: 'floating',
+	type: 'show',
 	defaultLanguage: 'ko',
 	defaultCurrency : 'krw',
 }
