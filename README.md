@@ -58,13 +58,13 @@ The `init()` method initializes Wepin SDK. If you don't have appId or appSdkKey,
 #### Example
 ```javascript
 var appId = 'YOUR_APP_ID'
-var appSdkKey = 'YOUR_APP_SDK_KEY '
+var appSdkKey = 'YOUR_APP_SDK_KEY'
 var attributes = {
 	type: 'show',
 	defaultLanguage: 'ko',
 	defaultCurrency : 'krw',
 }
-Wepin.init(appId , appSdkKey, attributes)
+await Wepin.init(appId, appSdkKey, attributes)
 ```
 
 ### isInitialized
