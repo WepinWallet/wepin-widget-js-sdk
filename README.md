@@ -14,6 +14,8 @@ yarn add @wepin/widget-sdk
 ## :fast_forward: Import SDK
 ```javascript
 import '@wepin/widget-sdk'
+
+var Wepin = window.Wepin
 ```
 or
 ```html
