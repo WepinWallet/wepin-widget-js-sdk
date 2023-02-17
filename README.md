@@ -13,7 +13,7 @@ yarn add @wepin/widget-sdk
 ```
 ## :fast_forward: Import SDK
 ```
-import { Wepin } from '@wepin/widget-sdk'
+import '@wepin/widget-sdk'
 ```
 or
 ```
@@ -22,6 +22,7 @@ or
 
 ## :fast_forward: Initialize 
 ```
+const Wepin = window?.Wepin 
 await Wepin.init(attributes)
 ```
 Wepin is initialized by an object of `IAttributes`. (Refer to [`@wepin/types`](https://github.com/WepinWallet/wepin-js-sdk-types))
