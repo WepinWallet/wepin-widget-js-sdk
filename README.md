@@ -28,44 +28,6 @@ Methods about initializing Wepin SDK
 ```javascript
 await Wepin.init(appId, appSdkKey[, attributes])
 ```
-The `init()` method initializes Wepin SDK. If you don't have appId or appSdkKey, please contact to wepin.contact@iotrust.kr
-#### Parameters
-- `appId` \<string>
-  - Application ID generated on application registration
-- `appSdkKey` \<string>
-  - Application SDK key assigned after application registration
-- `attributes` \<Object> *optional*
-  - Initial attributes for Wepin widget
-  - Type of `attributes` is assigned at [`@wepin/types`](https://github.com/WepinWallet/wepin-js-sdk-types) as `IAttributes`
-  - `type` \<string> *optional*
-    - Showing type of Wepin widget window
-    - If `type` is omitted, `'hide'` is used
-    - `'hide'`: Hide Wepin widget
-    - `'show'`: Show Wepin widget after first loading
-  - `defaultLanguage` \<string> *optional*
-    - Default language of Wepin widget
-    - If `defaultLanguage` is omitted, `'en'` is used
-    - `'en'`: English
-    - `'ko'`: Korean
-  - `defaultCurrency` \<string> *optional*
-    - Default currency of Wepin widget
-    - If `defaultLanguage` is omitted, `'usd'` is used
-    - `'usd'`: US Dollar
-    - `'krw'`: Korean Won
-#### Return value
-- `Promise` \<boolean>
-  - A `Promise` object resolved with result of initialization as boolean type.
-#### Example
-```javascript
-var appId = 'YOUR_APP_ID'
-var appSdkKey = 'YOUR_APP_SDK_KEY'
-var attributes = {
-	type: 'show',
-	defaultLanguage: 'ko',
-	defaultCurrency : 'krw',
-}
-await Wepin.init(appId, appSdkKey, attributes)
-```
 
 ### isInitialized
 ```javascript
