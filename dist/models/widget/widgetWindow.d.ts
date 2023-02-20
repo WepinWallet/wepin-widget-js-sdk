@@ -1,16 +1,17 @@
-import { widgetAndResult } from '@/models/types/WidgetTypes';
 import { Widget } from '@/models/widget/Widget';
-import { Wepin } from '@/wepin';
-import { WepinSDKType } from '@/models/types/wepinSdk';
-export declare class widgetWindow extends Widget {
-    static openNew(url: string, request: WepinSDKType.RequestBody | undefined, wepin: Wepin): Promise<widgetAndResult<widgetWindow>>;
-    private static getPopupFeatures;
-    private readonly target;
-    private readonly features;
+import { Wepin } from '@/Wepin';
+import { WepinResponseMessage } from '@/types/Message';
+export interface WidgetWindowFeatures {
+    width: number;
+    height: number;
+    sLeft: number;
+    sTop: number;
+}
+export declare class WidgetWindow extends Widget {
     private constructor();
-    private open;
+    static openNew(url: string, wepin: Wepin, widgetFeatures?: WidgetWindowFeatures): Promise<WidgetWindow>;
     protected expand(): void;
     protected shrink(): void;
-    protected closeWidget(): void;
-    get closed(): boolean;
+    protected _closeWebview(): void;
+    protected _post(message: WepinResponseMessage): void;
 }

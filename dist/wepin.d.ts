@@ -1,32 +1,54 @@
-import { widgetWindow } from '@/models/widget/widgetWindow';
-import { widgetFrame } from '@/models/widget/widgetFrame';
-import { SetAccountsRequest } from '@/models/types/request/toSdk/SetAccounts';
-import type { TxDataType } from '@/models/types/request/toWidget/SendTransaction';
-import { ReadyToWidgetResponse } from '@/models/types/response/toWidget/ReadyToWidget';
-import type { IAccount, IAttributes, IWepin } from '@wepin/types';
+import type { IAttributes } from '@wepin/types';
 import { modeByAppKey } from './types/modeByAppKey';
-export declare class Wepin implements IWepin {
-    private wepinAppId;
-    private wepinAppKey;
-    private wepinAppAttributes;
-    private wepinAppStage;
-    popupWindow: widgetWindow | widgetFrame;
-    private api;
-    private appInfo;
-    private accountInfo;
-    private floatImage;
+import { Widget } from './models/widget/Widget';
+import SafeEventEmitter from './utils/safeEventEmitter';
+import { Account } from './types/Account';
+/**
+ * It is entry of Wepin features.
+ * Client must use this object to use Wepin.
+ */
+export declare class Wepin extends SafeEventEmitter {
+    wepinAppId: string;
+    wepinAppKey: string;
+    wepinDomain: string;
+    wepinAppAttributes: IAttributes;
+    private _widget;
+    accountInfo: Account[];
     private _modeByAppKey;
+    _isInitialized: boolean;
     constructor();
-    set setAccountInfo(accounts: SetAccountsRequest);
+    setAccountInfo(accounts: Account[]): void;
+    get Widget(): Widget;
     private setModeByAppKey;
     get modeByAppKey(): modeByAppKey;
-    init(appId: string, appKey: string, attributes?: IAttributes): Promise<boolean>;
-    get initializedData(): ReadyToWidgetResponse;
+    toJSON(): string;
+    /**
+     * Initialize Wepin Object. It returns widget instance.
+     */
+    init(appId: string, appKey: string, attributes?: IAttributes): Promise<Wepin>;
+    /**
+     * Check if wepin is initialized.
+     *
+     * @returns
+     */
     isInitialized(): boolean;
-    private openWindow;
+    /**
+     * It opens widget window.
+     */
     openWidget(): Promise<void>;
+    /**
+     * It closes widget itself.
+     */
     closeWidget(): void;
-    getAccounts(networks?: string[]): Promise<IAccount[] | undefined>;
-    signMessage(message: string): Promise<string>;
-    sendTransaction(txObj: TxDataType): Promise<string>;
+    /**
+     * Returns available account list. It can be only usable after widget login.
+     * It returns all the accounts once parameter is empty.
+     *
+     * @param networks list of network wanted to get return
+     * @returns
+     */
+    getAccounts(networks?: string[]): Promise<{
+        address: string;
+        network: string;
+    }[]>;
 }

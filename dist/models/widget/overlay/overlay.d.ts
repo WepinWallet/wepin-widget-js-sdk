@@ -1,7 +1,7 @@
-export declare class overlay {
+export declare class Overlay {
     protected static CONST: {
         overlayClassName: string;
     };
-    static closeOverlay(id: string, useOverlay: boolean): void;
-    static openOverlay(id: string, useOverlay: boolean): void;
+    protected static closeOverlay(id: string): void;
+    protected static openOverlay(id: string): void;
 }

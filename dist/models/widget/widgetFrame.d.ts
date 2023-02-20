@@ -1,16 +1,12 @@
-import { widgetAndResult } from '@/models/types/WidgetTypes';
 import { Widget } from './Widget';
-import { Wepin } from '@/wepin';
-import { WepinSDKType } from '@/models/types/wepinSdk';
-export declare class widgetFrame extends Widget {
-    private static CONST;
-    static openNew(url: string, request: WepinSDKType.RequestBody | undefined, wepin: Wepin): Promise<widgetAndResult<widgetFrame>>;
-    private readonly iframeId;
-    private scrollPosition;
+import { Wepin } from '@/Wepin';
+import { WepinResponseMessage } from '@/types/Message';
+export declare class WidgetFrame extends Widget {
+    static scrollPosition: number;
     private constructor();
-    private open;
+    static openNew(url: string, wepin: Wepin, widgetFreautres?: any): Promise<WidgetFrame>;
     protected expand(): void;
     protected shrink(): void;
-    protected closeWidget(): void;
-    get closed(): boolean;
+    protected _closeWebview(): void;
+    protected _post(message: WepinResponseMessage): void;
 }

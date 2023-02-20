@@ -6,7 +6,6 @@ export default class Utils {
         hasValidOrigin: (message: MessageEvent) => boolean;
     };
     static getUrls(modeByAppKey: modeByAppKey): {
-        wepinSdkApi: string;
         wepinWebview: string;
     };
     static uuidv4(): string;

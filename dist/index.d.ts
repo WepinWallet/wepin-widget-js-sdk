@@ -1,1 +1,1 @@
-export { Wepin } from '@/wepin';
+export { Wepin } from '@/Wepin';

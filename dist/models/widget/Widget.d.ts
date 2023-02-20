@@ -1,30 +1,27 @@
-import { Wepin } from '@/wepin';
-import { WepinSDKType } from '@/models/types/wepinSdk';
-export declare abstract class Widget {
+import { Overlay } from '@/models/widget/overlay/Overlay';
+import { Wepin } from '@/Wepin';
+import { WepinRequestMessage, WepinResponseMessage } from '@/types/Message';
+/**
+ * Basically, Widget has control over Webview.
+ * Client must not handle this object directly.
+ * It Also has informations about Webview itself.
+ */
+export declare abstract class Widget extends Overlay {
     protected readonly id: string;
-    protected readonly url: string;
-    protected readonly useOverlay: boolean;
-    protected readonly request: WepinSDKType.RequestBody;
-    protected widget?: Window | HTMLIFrameElement | null;
-    protected widgetWebviewEventListener?: (message: MessageEvent) => void;
-    protected closeInterval?: number;
-    private wepin;
-    protected constructor(url: string, useOverlay: boolean, request: WepinSDKType.RequestBody, wepin: Wepin);
-    protected getWepin(): Wepin;
-    protected abstract closeWidget(): void;
+    readonly url: string;
+    private EL;
+    protected _open: boolean;
+    get isOpen(): boolean;
+    private _wepin;
+    get Wepin(): Wepin;
+    private _webview;
+    get Webview(): Window | HTMLIFrameElement;
+    protected constructor(url: string, wepin: Wepin, webview: Window | HTMLIFrameElement);
     protected abstract expand(): void;
     protected abstract shrink(): void;
-    protected setCloseInterval(): void;
-    private clearCloseInterval;
-    protected onResponseEventListener(resolve: (value?: unknown) => void, reject: (reason?: string) => void, response: WepinSDKType.WepinCommand): void;
-    private onRequestEventListener;
-    private getMessageType;
-    protected createWidgetWebviewEventListener(resolve: (value?: unknown) => void, reject: (reason?: string) => void): (message: MessageEvent) => void;
-    private createOnlyResponseEventListener;
-    private removeWidgetWebviewEventListener;
-    focus(): void;
-    abstract get closed(): boolean;
+    protected abstract _post(message: WepinResponseMessage | WepinRequestMessage): void;
+    protected abstract _closeWebview(): void;
     close(): void;
-    private closeOverlay;
-    private openOverlay;
+    response(data: WepinResponseMessage): void;
+    request(data: WepinRequestMessage): void;
 }
