@@ -1,5 +1,7 @@
 # @wepin/widget-sdk
-Wepin Widget Javascript SDK for Web
+Wepin Widget Javascript SDK for Web.
+
+This package is only available in the web environment. It cannot be used in Android and iOS apps (Webview).
 
 ## :fast_forward: Get App ID and Key 
 Contact to wepin.contact@iotrust.kr
