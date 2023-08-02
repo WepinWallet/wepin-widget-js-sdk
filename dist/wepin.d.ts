@@ -3,6 +3,7 @@ import { modeByAppKey } from './types/modeByAppKey';
 import { Widget } from './models/widget/Widget';
 import SafeEventEmitter from './utils/safeEventEmitter';
 import { Account } from './types/Account';
+import type { WepinRequestMessage } from './types/Message';
 /**
  * It is entry of Wepin features.
  * Client must use this object to use Wepin.
@@ -16,6 +17,7 @@ export declare class Wepin extends SafeEventEmitter {
     accountInfo: Account[];
     private _modeByAppKey;
     _isInitialized: boolean;
+    queue: WepinRequestMessage[];
     constructor();
     setAccountInfo(accounts: Account[]): void;
     get Widget(): Widget;
