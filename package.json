@@ -1,6 +1,6 @@
 {
   "name": "@wepin/widget-sdk",
-  "version": "0.2.0-alpha",
+  "version": "0.2.1-alpha",
   "description": "Wepin Widget Javascript SDK for Web",
   "main": "./dist/wepin-widget-sdk.js",
   "types": "./dist/index.d.ts",
