@@ -6,4 +6,4 @@ import { Widget } from '../Widget';
  * @param message Webview 에서 온 MessageEvent.data
  * @param widget Window | Iframe
  */
-export declare const WebviewRequestHandler: (message: WebviewReqestMessage, widget: Widget) => void;
+export declare const WebviewRequestHandler: (message: WebviewReqestMessage, widget: Widget, wepinAppKey: string) => void;

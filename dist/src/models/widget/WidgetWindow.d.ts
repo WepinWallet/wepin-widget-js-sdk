@@ -9,7 +9,7 @@ export interface WidgetWindowFeatures {
 }
 export declare class WidgetWindow extends Widget {
     private constructor();
-    static openNew(url: string, wepin: Wepin, widgetFeatures?: WidgetWindowFeatures): Promise<WidgetWindow>;
+    static openNew(url: string, wepin: Wepin, wepinAppKey: string, widgetFeatures?: WidgetWindowFeatures): Promise<WidgetWindow>;
     protected expand(): void;
     protected shrink(): void;
     protected _closeWebview(): void;

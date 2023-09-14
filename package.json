@@ -1,9 +1,9 @@
 {
   "name": "@wepin/widget-sdk",
-  "version": "0.2.1-alpha",
+  "version": "0.2.2-alpha",
   "description": "Wepin Widget Javascript SDK for Web",
   "main": "./dist/wepin-widget-sdk.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "author": "IoTrust, Co., Ltd.",
   "homepage": "https://github.com/WepinWallet/wepin-widget-js-sdk/",
   "files": [
@@ -34,7 +34,7 @@
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
-    "@wepin/types": "^0.0.5-alpha",
+    "@wepin/types": "^0.0.7",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "buffer": "^6.0.3",
+    "jwt-decode": "^3.1.2",
     "ua-parser-js": "^1.0.32"
   }
 }

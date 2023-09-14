@@ -10,6 +10,7 @@ export declare abstract class Widget extends Overlay {
     protected readonly id: string;
     readonly url: string;
     readonly type: 'Frame' | 'Window';
+    readonly isHide: boolean;
     private EL;
     protected _open: boolean;
     get isOpen(): boolean;
@@ -17,7 +18,7 @@ export declare abstract class Widget extends Overlay {
     get Wepin(): Wepin;
     private _webview;
     get Webview(): Window | HTMLIFrameElement;
-    protected constructor(url: string, wepin: Wepin, webview: Window | HTMLIFrameElement, type: 'Frame' | 'Window');
+    protected constructor(url: string, wepin: Wepin, webview: Window | HTMLIFrameElement, type: 'Frame' | 'Window', wepinAppKey: string, isHide?: boolean);
     protected abstract expand(): void;
     protected abstract shrink(): void;
     protected abstract _post(message: WepinResponseMessage | WepinRequestMessage): void;

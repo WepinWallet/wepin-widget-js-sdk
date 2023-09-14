@@ -1,7 +1,6 @@
 import { modeByAppKey } from '@/types/modeByAppKey';
 export default class Utils {
     static isMobile(): boolean;
-    static isWebview(): boolean;
     static messages(modeByAppKey: modeByAppKey): {
         hasValidOrigin: (message: MessageEvent) => boolean;
     };
@@ -9,4 +8,9 @@ export default class Utils {
         wepinWebview: string;
     };
     static uuidv4(): string;
+    static getLocalStorgeEnabled(): boolean;
+    static setLocalStorage(appId: string, value: unknown): void;
+    static getLocalStorage(appId: string): any;
+    static clearLocalStorage(appId: string): void;
+    static isExpired(token: string): boolean;
 }

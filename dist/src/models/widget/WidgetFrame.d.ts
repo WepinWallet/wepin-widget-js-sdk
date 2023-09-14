@@ -4,7 +4,9 @@ import { WepinResponseMessage } from '@/types/Message';
 export declare class WidgetFrame extends Widget {
     static scrollPosition: number;
     private constructor();
-    static openNew(url: string, wepin: Wepin, widgetFreautres?: any): Promise<WidgetFrame>;
+    static openNew(url: string, wepin: Wepin, wepinAppKey: string, widgetFreautres?: {
+        isHide: boolean;
+    }): Promise<WidgetFrame>;
     protected expand(): void;
     protected shrink(): void;
     protected _closeWebview(): void;
