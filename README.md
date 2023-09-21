@@ -24,23 +24,6 @@ or
 <script src="https://cdn.jsdelivr.net/npm/@wepin/widget-sdk@0.0.2-alpha/dist/wepin-widget-sdk.js" defer async></script>
 ```
 
-## :fast_forward: Initialize 
-Methods about initializing Wepin SDK
-### init
-```javascript
-await Wepin.init(appId, appSdkKey[, attributes])
-```
-
-### isInitialized
-```javascript
-Wepin.isInitialized()
-```
-The `isInitialized()` method checks Wepin SDK is initialized.
-
-#### Return value
-- \<boolean>
-  - `true` if Wepin SDK is already initialized.
-
 ## ⏩ Initialize
 
 Methods about initializing Wepin SDK
@@ -155,7 +138,7 @@ var accounts = await Wepin.getAccounts(['Ethereum'])
 - `Promise` \<void>
   - If user is not logged in, it returns `Promise` \<void>.
 
-### getStatus (Support from version `0.3.0`)
+### getStatus (Support from version `0.3.1`)
 
 ```javascript
 Wepin.getStatus()
@@ -179,7 +162,7 @@ var status = Wepin.getStatus()
     - `before_login`: if wepin is initialized but the user is not logged in
     - `login`: if the user is logged in
 
-### login(Support from version `0.3.0`)
+### login(Support from version `0.3.1`)
 
 ```javascript
 await Wepin.login()
@@ -218,7 +201,7 @@ var userInfo = await Wepin.login()
     }
     ```
 
-### logout (Support from version `0.3.0`)
+### logout (Support from version `0.3.1`)
 
 ```javascript
 await Wepin.logout()
@@ -234,4 +217,22 @@ Example
 
 ```javascript
 await Wepin.logout()
+```
+
+### **finalize** (Support from version `0.3.1`)
+
+```javascript
+Wepin.finalize()
+```
+
+The `finalize()` methodfinalizes the Wepin SDK
+
+#### Return value
+
+- `void`
+
+Example
+
+```javascript
+Wepin.finalize()
 ```

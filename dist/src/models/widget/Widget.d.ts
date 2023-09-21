@@ -18,6 +18,7 @@ export declare abstract class Widget extends Overlay {
     get Wepin(): Wepin;
     private _webview;
     get Webview(): Window | HTMLIFrameElement;
+    clearWebview(): void;
     protected constructor(url: string, wepin: Wepin, webview: Window | HTMLIFrameElement, type: 'Frame' | 'Window', wepinAppKey: string, isHide?: boolean);
     protected abstract expand(): void;
     protected abstract shrink(): void;

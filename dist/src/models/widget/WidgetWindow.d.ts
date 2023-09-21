@@ -9,6 +9,7 @@ export interface WidgetWindowFeatures {
 }
 export declare class WidgetWindow extends Widget {
     private constructor();
+    private static timer;
     static openNew(url: string, wepin: Wepin, wepinAppKey: string, widgetFeatures?: WidgetWindowFeatures): Promise<WidgetWindow>;
     protected expand(): void;
     protected shrink(): void;

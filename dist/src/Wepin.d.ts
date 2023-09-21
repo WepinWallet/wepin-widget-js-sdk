@@ -56,7 +56,7 @@ export declare class Wepin extends SafeEventEmitter {
         address: string;
         network: string;
     }[]>;
-    setUserInfo(userInfo: IWepinUser): void;
+    setUserInfo(userInfo: IWepinUser, withEmit?: boolean): void;
     /**
      * Returns lifecycle of wepin.
      * The lifecycle of the wepin is defined as follows.
@@ -82,4 +82,6 @@ export declare class Wepin extends SafeEventEmitter {
      * @returns {Promise<void>}
      */
     logout(): Promise<void>;
+    private _initQueue;
+    finalize(): void;
 }
