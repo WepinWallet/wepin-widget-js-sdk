@@ -1,4 +1,13 @@
 # @wepin/widget-sdk
+
+<div>
+  <!-- NPM Version -->
+  <a href="https://www.npmjs.org/package/@wepin/widget-sdk">
+    <img src="http://img.shields.io/npm/v/@wepin/widget-sdk.svg"
+    alt="NPM version" />
+  </a>
+</div>
+<br />
 Wepin Widget Javascript SDK for Web.
 
 This package is only available in the web environment. It cannot be used in Android and iOS apps (Webview).
@@ -236,3 +245,106 @@ Example
 ```javascript
 Wepin.finalize()
 ```
+
+## ⏩Provider(Support from version `0.3.2`)
+
+Wepin Provider Widget SDK for Web.
+
+This package is only available in the web environment. It cannot be used in Android and iOS apps(Webview).
+
+Wipin supports providers that return JSON-RPC request responses to connect with blockchain networks in webs. With Wipin Provider, you can easily connect to various networks supported by Wipin.
+
+The providers supported by Wipin are as follows.
+
+- EVM compatible Networks
+- Klaytn Network (Comming soon)
+
+### EVM compatible Networks
+
+Ethers.js or Web3.js can be used with Wepin Provider to interoperate with EVM compatible blockchains.
+
+#### Support Networks
+
+| Chain ID | Network Name            | Network Variable   |
+| -------- | ----------------------- | ------------------ |
+| 1        | Ethereum Mainnet        | ethereum           |
+| 5        | Ethereum Goerli Testnet | evmeth-goerli      |
+| 19       | Songbird Canary Network | evmsongbird        |
+| 137      | Polygon Mainnet         | evmpolygon         |
+| 1001     | Klaytn Testnet          | klaytn-testnet     |
+| 8217     | Klaytn Mainnet          | klaytn             |
+| 80001    | Polygon Mumbai          | evmpolygon-testnet |
+| 2731     | Time Testnet            | evmtime-elizabeth  |
+
+### getProvider
+
+It returns a Provider by given network.
+
+```js
+Wepin.getProvider({ network })
+```
+
+#### Parameter
+
+- `network` \<string> - Available chains Wepin helps provide.(Network variables)
+
+#### Return vlaue
+
+- EIP-1193 provider.
+
+#### Example
+
+```js
+const provider = Wepin.getProvider({ network: 'ethereum' })
+```
+
+### Method
+
+- **Get Accounts**
+  - You can receive account information through the initialized web3.
+
+```javascript
+const accounts = await web3.eth.getAccounts()
+```
+
+- **Get Balance**
+  - You can check the account balance using the account information.
+
+```javascript
+const balance = await web3.eth.getBalance(accounts[0])
+```
+
+> Please refer to the document below for instructions on how to check the balance, fee details, block numbers, etc.
+>
+> - web3.js: [web3.js 1.0.0 documentation](https://web3js-kr.readthedocs.io/ko/latest/getting-started.html)
+> - ethers.js: [ethers.js 5.7 documentaion](https://docs.ethers.org/v5/getting-started/)
+
+- **Send Transaction**
+  Transaction can be sent.
+
+```javascript
+const accounts = await web3.eth.getAccounts()
+const tx = {
+  from: accounts[0],
+  gasPrice: '2000000000',
+  gas: '21000',
+  to: '0x11f4d0A3c1......13F7E19D048276DAe',
+  value: '10000000000000000',
+}
+const response = await web3.eth.sendTransaction(tx)
+```
+
+- **Contract Call**
+  A contract call can be performed.
+
+```javascript
+const callObject = {
+  to: '0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe', //contract address
+  data: '0xc6888fa10000000000000000000000000000000000000000000000000000000000000003',
+}
+const response = await web3.eth.call(callObject)
+```
+
+For details of Ethereum compatible network providers, please refer to the link below.
+
+[EIP-1193: Ethereum Provider Javascript API](https://eips.ethereum.org/EIPS/eip-1193)

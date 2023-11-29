@@ -4,6 +4,7 @@ import { Widget } from './models/widget/Widget';
 import SafeEventEmitter from './utils/safeEventEmitter';
 import { Account } from './types/Account';
 import type { WepinRequestMessage } from './types/Message';
+import { SupportedChains } from './provider/types/Networks';
 /**
  * It is entry of Wepin features.
  * Client must use this object to use Wepin.
@@ -72,10 +73,10 @@ export declare class Wepin extends SafeEventEmitter {
     /**
      * Returns the user's login information. It can be only usable after widget login.
      *
-     * @param networks list of network wanted to get return
+     * @param email Encourage users to log in with the email specified in the app.
      * @returns
      */
-    login(): Promise<IWepinUser>;
+    login(email?: string): Promise<IWepinUser>;
     /**
      * Function to handle user logout.
      *
@@ -84,4 +85,18 @@ export declare class Wepin extends SafeEventEmitter {
     logout(): Promise<void>;
     private _initQueue;
     finalize(): void;
+    getNetworkByChainId: (chainId: unknown) => SupportedChains;
+    getNetworkInfoByName: (network: SupportedChains) => import("./provider/utils/info").NetworkInformation;
+    /**
+     * It returns a Provider by given network, chainId.
+     *
+     * @reference https://docs.wepin.io/kr/wepin/supported-blockchain
+     * @param options - An options bag
+     * @param options.network - Available chains Wepin helps provide.
+     *  It should be lowercase.
+     * @returns A EIP-1193 provider
+     */
+    getProvider({ network }: {
+        network: SupportedChains;
+    }): any;
 }

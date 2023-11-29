@@ -1,4 +1,4 @@
-import { modeByAppKey } from '@/types/modeByAppKey';
+import { modeByAppKey } from '../types/modeByAppKey';
 export default class Utils {
     static isMobile(): boolean;
     static messages(modeByAppKey: modeByAppKey): {

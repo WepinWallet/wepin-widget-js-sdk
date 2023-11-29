@@ -1,4 +1,4 @@
-import { WebviewReqestMessage } from '@/types/Message';
+import { WebviewReqestMessage } from '../../../types/Message';
 import { Widget } from '../Widget';
 /**
  * It handles all the request from the webview.
