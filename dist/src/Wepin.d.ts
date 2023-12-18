@@ -30,6 +30,7 @@ export declare class Wepin extends SafeEventEmitter {
      * Initialize Wepin Object. It returns widget instance.
      */
     init(appId: string, appKey: string, attributes?: IAttributes): Promise<Wepin>;
+    private isLogedIn;
     /**
      * Check if wepin is initialized.
      *
