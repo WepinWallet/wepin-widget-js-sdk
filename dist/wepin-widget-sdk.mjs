@@ -732,7 +732,7 @@ let Rv = class extends Ci.EventEmitter {
     return !0;
   }
 };
-const Gg = "@wepin/widget-sdk", Jg = "0.4.2", Xg = "Wepin Widget Javascript SDK for Web", Yg = "./dist/wepin-widget-sdk.umd.js", Qg = "./dist/src/index.d.ts", em = "IoTrust, Co., Ltd.", tm = "https://github.com/WepinWallet/wepin-widget-js-sdk/", rm = [
+const Gg = "@wepin/widget-sdk", Jg = "0.4.4", Xg = "Wepin Widget Javascript SDK for Web", Yg = "./dist/wepin-widget-sdk.umd.js", Qg = "./dist/src/index.d.ts", em = "IoTrust, Co., Ltd.", tm = "https://github.com/WepinWallet/wepin-widget-js-sdk/", rm = [
   "dist"
 ], nm = {
   type: "git",
@@ -754,7 +754,7 @@ const Gg = "@wepin/widget-sdk", Jg = "0.4.2", Xg = "Wepin Widget Javascript SDK 
   "@types/ua-parser-js": "^0.7.36",
   "@typescript-eslint/eslint-plugin": "^5.46.1",
   "@typescript-eslint/parser": "^5.46.1",
-  "@wepin/types": "^0.0.10",
+  "@wepin/types": "^0.0.11",
   eslint: "^8.29.0",
   "eslint-config-prettier": "^8.5.0",
   "eslint-plugin-prettier": "^4.2.1",
