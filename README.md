@@ -278,6 +278,7 @@ Ethers.js or Web3.js can be used with Wepin Provider to interoperate with EVM co
 | 8217     | Klaytn Mainnet          | klaytn             |
 | 80001    | Polygon Mumbai          | evmpolygon-testnet |
 | 2731     | Time Testnet            | evmtime-elizabeth  |
+| 11155111 | Ethereum Sepolia        | evmeth sepolia     |
 
 ### getProvider
 
