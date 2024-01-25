@@ -1,6 +1,6 @@
 {
   "name": "@wepin/widget-sdk",
-  "version": "0.4.5",
+  "version": "0.5.1",
   "description": "Wepin Widget Javascript SDK for Web",
   "main": "./dist/wepin-widget-sdk.umd.js",
   "types": "./dist/src/index.d.ts",
@@ -33,7 +33,7 @@
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
-    "@wepin/types": "^0.0.10",
+    "@wepin/types": "^0.0.11",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

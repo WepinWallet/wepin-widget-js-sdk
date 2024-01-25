@@ -1,5 +1,6 @@
 type WepinProvderCommand = 'request_enable' | 'sign_transaction' | 'send_transaction' | 'sign_typed_data' | 'sign' | 'wallet_switchEthereumChain';
-type WepinCommand = 'ready_to_widget' | 'initialized_widget' | 'set_accounts' | 'close_wepin_widget' | 'provider_request' | 'dequeue_request' | 'set_user_info' | 'wepin_logout' | 'set_local_storage' | 'set_user_email' | WepinProvderCommand;
+type WepinAdminCommand = 'signup_email' | 'login_email' | 'register_wepin' | 'get_balance';
+type WepinCommand = 'ready_to_widget' | 'initialized_widget' | 'set_accounts' | 'close_wepin_widget' | 'provider_request' | 'dequeue_request' | 'set_user_info' | 'wepin_logout' | 'set_local_storage' | 'set_user_email' | WepinProvderCommand | WepinAdminCommand;
 export interface WebviewReqestMessage {
     header: {
         request_from: 'wepin_widget';

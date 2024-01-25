@@ -21,7 +21,7 @@ export declare class Wepin extends SafeEventEmitter {
     _isInitialized: boolean;
     queue: WepinRequestMessage[];
     constructor();
-    setAccountInfo(accounts: Account[]): void;
+    setAccountInfo(accounts: Account[], detaliAccount?: any): void;
     get Widget(): Widget;
     private setModeByAppKey;
     get modeByAppKey(): modeByAppKey;
@@ -67,12 +67,13 @@ export declare class Wepin extends SafeEventEmitter {
      *  - 'initialized': if wepin is initialized
      *  - 'before_login': if wepin is initialized but the user is not logged in
      *  - 'login': if the user is logged in
+     *  - 'login_before_register': if the user is email logged in but the user is NOT registered in wepin
      *
      * @returns WepinLifeCycle
      */
     getStatus(): WepinLifeCycle;
     /**
-     * Returns the user's login information. It can be only usable after widget login.
+     * Returns the user's login information.
      *
      * @param email Encourage users to log in with the email specified in the app.
      * @returns
@@ -84,6 +85,47 @@ export declare class Wepin extends SafeEventEmitter {
      * @returns {Promise<void>}
      */
     logout(): Promise<void>;
+    private registerWithWidget;
+    /**
+     * sign-in with external token(idToken) of dapp service. Returns the user's login information.
+     *
+     * @param token external token for login
+     * @param sign signature of token
+     * @param withUI (optional)if true, it opens widget window
+     * @returns
+     */
+    loginWithExternalToken(token: string, sign: string, withUI?: boolean): Promise<IWepinUser>;
+    /**
+     * It signs up on the wepin with your email and password.
+     *
+     * @param email user email
+     * @param password user passwrod
+     * @returns 'true' if signup is successful, 'false' if it fails
+     */
+    signUpWithEmailAndPassword(email: string, password: string): Promise<boolean>;
+    /**
+     * It logs in to the Wepin with your email and password.
+     * Returns the user's login information.
+     *
+     * @param email user email
+     * @param password user passwrod
+     * @returns userInfo
+     */
+    loginWithEmailAndPassword(email: string, password: string): Promise<IWepinUser>;
+    /**
+     * After the signup and login are completed, the Wepin service registration (wallet and account creation) will proceed.
+     *
+     * @param pin wallet pin
+     * @returns 'true' if register is successful, 'false' if it fails
+     */
+    register(pin: string): Promise<boolean>;
+    /**
+     * Returns the account's balance information. It can be only usable after widget login.
+     *
+     * @param account account info
+     * @returns account balance info
+     */
+    getBalance(account: Account): Promise<any>;
     private _initQueue;
     finalize(): void;
     getNetworkByChainId: (chainId: unknown) => SupportedChains;
