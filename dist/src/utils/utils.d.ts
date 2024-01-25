@@ -8,6 +8,7 @@ export default class Utils {
         wepinWebview: string;
     };
     static uuidv4(): string;
+    static checkSameNumber: (pin: string, times: number, isRegisterReqiored: boolean) => boolean;
     static getLocalStorgeEnabled(): boolean;
     static setLocalStorage(appId: string, value: unknown): void;
     static getLocalStorage(appId: string): any;
