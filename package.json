@@ -1,6 +1,6 @@
 {
   "name": "@wepin/widget-sdk",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Wepin Widget Javascript SDK for Web",
   "main": "./dist/wepin-widget-sdk.umd.js",
   "types": "./dist/src/index.d.ts",
@@ -29,6 +29,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@types/events": "^3.0.3",
     "@types/lodash": "^4.14.189",
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "^5.46.1",

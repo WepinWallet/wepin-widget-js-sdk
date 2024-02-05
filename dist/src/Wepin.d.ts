@@ -1,9 +1,9 @@
-import type { IAttributes, WepinLifeCycle, IWepinUser } from '@wepin/types';
-import { modeByAppKey } from './types/modeByAppKey';
 import { Widget } from './models/widget/Widget';
-import SafeEventEmitter from './utils/safeEventEmitter';
 import { Account } from './types/Account';
 import type { WepinRequestMessage } from './types/Message';
+import { modeByAppKey } from './types/modeByAppKey';
+import SafeEventEmitter from './utils/safeEventEmitter';
+import type { IAttributes, IWepinUser, WepinLifeCycle } from '@wepin/types';
 import { SupportedChains } from './provider/types/Networks';
 /**
  * It is entry of Wepin features.

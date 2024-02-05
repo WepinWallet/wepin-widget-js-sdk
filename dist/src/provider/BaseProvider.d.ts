@@ -1,7 +1,7 @@
 import { JsonRpcEngine, JsonRpcMiddleware } from 'json-rpc-engine';
+import type { ProviderInfo } from './types/EIP5749';
 import { BaseProviderState, RequestArguments, UnvalidatedJsonRpcRequest } from './types/EIP1193';
 import SafeEventEmitter from '../utils/safeEventEmitter';
-import type { ProviderInfo } from './types/EIP5749';
 export interface BaseProviderOptions {
     logger?: Console;
     maxEventListeners?: number;
@@ -37,5 +37,5 @@ export declare abstract class BaseProvider extends SafeEventEmitter implements P
         chainId?: string;
         networkVersion?: string;
     }): void;
-    protected _handleAccountsChanged(accounts: unknown[], isEthAccounts?: boolean): void;
+    protected _handleAccountsChanged(accounts: unknown[]): void;
 }

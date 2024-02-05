@@ -1,4 +1,4 @@
-import { Widget } from '../../models/widget/Widget';
+import { Widget } from './Widget';
 import { Wepin } from '../../Wepin';
 import { WepinResponseMessage } from '../../types/Message';
 export interface WidgetWindowFeatures {
