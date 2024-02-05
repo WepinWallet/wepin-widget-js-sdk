@@ -207,6 +207,7 @@ var userInfo = await Wepin.login('wepin@wepin.io')
       - `userId` \<string>
       - `email` \<string>
       - `provider` \<'google'|'apple'|'naver'|'discord'|'email'|'external_token'>
+
   - Example
 
     ```js
@@ -271,9 +272,11 @@ If the user is not registered on Wepin, and the `withUI` value is set to true, t
 - `token` \<string>
 
   - External token value to be used for login (e.g., idToken).
+
 - `sign` \<string>
 
   - Signature value for the token provided as the first parameter.([Signature Generation Methods](doc/SignatureGenerationMethods.md))
+
 - `withUI` \<boolean> _optional_
 
   - Indicates whether to display the Wepin widget screen if registration is required.
@@ -298,6 +301,7 @@ var userInfo = await Wepin.loginWithExternalToken(idToken, sign, true)
       - `userId` \<string>
       - `email` \<string>
       - `provider` \<'external_token'>
+
   - Example
 
     ```js
@@ -372,6 +376,7 @@ await Wepin.loginWithEmailAndPassword(email, password)
       - `userId` \<string>
       - `email` \<string>
       - `provider` \<'email'>
+
   - Example
 
     ```js
@@ -456,6 +461,7 @@ awit Wepin.getBalance(account)
       - `contract` \<string> - token contract address
       - `symbol` \<string> - token symbol
       - `balance` \<string> - token balance
+
   - Example
 
     ```js
@@ -490,32 +496,32 @@ const result = Wepin.getBalance({
 
 The error message types of the admin method are as follows.
 
-| Error Message           | Description                                                                                                   |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------- |
-| invalid/email-format    | invalid email format                                                                                          |
+| Error Message           | Description                                                                                                 |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------- |
+| invalid/email-format    | invalid email format                                                                                        |
 | invalid/password-format | invalid password format (A minimum of 8 characters consisting of letters, numbers and special characters. ) |
-| invalid/pin-format      | invalid PIN format (6-8 digit number) (\*Do not use the same number more than four times when registering)   |
-| invalid/firebase-token  | invalid firebase token                                                                                        |
-| invalid/wepin-api-key   | invalid wepin api key                                                                                         |
-| invalid/account         | invalid account                                                                                               |
-| invalid/email-domain    | invalid email domain                                                                                          |
-| auth/existed-email      | existed email                                                                                                 |
-| auth/too-many-requests  | too mandy firebase requests                                                                                   |
-| auth/wrong-password     | wrong password                                                                                                |
-| auth/expired-token      | expired login session                                                                                         |
-| auth/unknown/${string}  | unknown auth error                                                                                            |
-| fail/send-email         | failed to sent validation email                                                                              |
-| fail/reset-password     | failed to set password                                                                                        |
-| fail/email-verified     | failed to verify email                                                                                        |
-| fail/wepin-login        | login wepin failed                                                                                            |
-| fail/wepin-register     | failed to register with wepin                                                                                 |
-| fail/get-balance        | failed to get balance                                                                                         |
-| fail/check-email        | failed to check email                                                                                         |
-| require/email-verified  | email verification required                                                                                   |
-| require/signup          | wepin sign-up required                                                                                        |
-| require/wepin-register  | wepin registration required                                                                                   |
-| require/login           | wepin login required                                                                                          |
-| unknown/${string}       | unknown error                                                                                                 |
+| invalid/pin-format      | invalid PIN format (6-8 digit number) (\*Do not use the same number more than four times when registering)  |
+| invalid/firebase-token  | invalid firebase token                                                                                      |
+| invalid/wepin-api-key   | invalid wepin api key                                                                                       |
+| invalid/account         | invalid account                                                                                             |
+| invalid/email-domain    | invalid email domain                                                                                        |
+| auth/existed-email      | existed email                                                                                               |
+| auth/too-many-requests  | too mandy firebase requests                                                                                 |
+| auth/wrong-password     | wrong password                                                                                              |
+| auth/expired-token      | expired login session                                                                                       |
+| auth/unknown/${string}  | unknown auth error                                                                                          |
+| fail/send-email         | failed to sent validation email                                                                             |
+| fail/reset-password     | failed to set password                                                                                      |
+| fail/email-verified     | failed to verify email                                                                                      |
+| fail/wepin-login        | login wepin failed                                                                                          |
+| fail/wepin-register     | failed to register with wepin                                                                               |
+| fail/get-balance        | failed to get balance                                                                                       |
+| fail/check-email        | failed to check email                                                                                       |
+| require/email-verified  | email verification required                                                                                 |
+| require/signup          | wepin sign-up required                                                                                      |
+| require/wepin-register  | wepin registration required                                                                                 |
+| require/login           | wepin login required                                                                                        |
+| unknown/${string}       | unknown error                                                                                               |
 
 ## ⏩Provider(Support from version `0.3.2`)
 
@@ -545,7 +551,7 @@ Ethers.js or Web3.js can be used with Wepin Provider to interoperate with EVM co
 | 1001     | Klaytn Testnet          | klaytn-testnet     |
 | 8217     | Klaytn Mainnet          | klaytn             |
 | 80001    | Polygon Mumbai          | evmpolygon-testnet |
-| 2731     | Time Testnet           | evmtime-elizabeth  |
+| 2731     | Time Testnet            | evmtime-elizabeth  |
 | 11155111 | Ethereum Sepolia        | evmeth sepolia     |
 
 ### getProvider
@@ -569,6 +575,10 @@ Wepin.getProvider({ network })
 ```js
 const provider = Wepin.getProvider({ network: 'ethereum' })
 ```
+
+> ##### ‼️ Caution ‼️
+>
+> If you intend to use the provider, make sure to log in to Wepin and call the `Wepin.getAccounts()` method to verify the supported networks. If the **logged-in account changes** , the supported networks might change as well, requiring you to set the provider again after calling the new `Wepin.getAccounts()` method.
 
 ### Method
 
